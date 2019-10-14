@@ -1,0 +1,51 @@
+%% CAPITULO 5
+\hypertarget{estilo:capitulo}{}
+\chapter{CONCLUSÕES}
+
+A assimilação de dados de precipitação, em um processo conhecido também como Inicialização Física (IF), tem como principal objetivo reduzir o tempo de spin-up do modelo (tempo necessário para que o modelo numérico de previsão se ajuste dinamicamente às informações inseridas), melhorando também as condições inciais de umidade do solo, além de melhorar a representação dos sistemas convectivos, especialmente aqueles relacionados à convecção profunda, tais como os Complexos Convectivos de Mesoescala (CCMs).
+
+Nesta dissertação de mestrado foi investigado o impacto da assimilação dos dados estimados de precipitação do TRMM no sistema de assimilação de dados RPSAS do CPTEC, sendo o principal objetivo deste trabalho verificar a qualidade da simulação de CCMs.
+
+Durante os meses de Novembro de 2002 a Fevereiro de 2003, foi realizado um dos maiores experimentos de campo - SALLJEX, cujo principal objetivo foi estudar o Jato de Baixos Níveis e sua influência na dinâmica dos processos convectivos de Mesoescala. Durante o mês de Janeiro de 2003, foram verificadas a ocorrência de mais de 100 Sistemas Convectivos de Mesoescala (SCMs), dos quais 2 foram identificados como Complexos Convectivos de Mesoescala (ZIPSER, 2004) em 2003.  Desses 2 eventos de precipitação severa, foi escolhido o ocorrido no dia 23 de Janeiro de 2003 como estudo de caso. Nas simulações com (CAP) e sem (SAP) assimilação de precipitação, pôde-se concluir que o modelo regional de previsão de tempo EtaWS foi capaz de reproduzir o complexo convectivo. Um característica dos modelos de regionais de mesoescala como o Eta, na previsão de sistemas convectivos, é atrasar a posição e subestimar a quantidade de precipitação associada e esse tipo de evento precipitante. Este fato pôde ser verificado com a simulação SAP do estudo de caso, em que o modelo não previu a precipitação característica do CCM sobre o norte da Argentina. O experimento CAP, que assimilou a precipitação do TRMM, foi capaz de detectar a presença do complexo e de posicionar e simular uma quantidade de pre-cipitação compatível com a observada. Os dados de alta resolução do SALLJEX, no entanto, apresentam acumulados muito superiores àquela apresentada pelo modelo de previsão. Esta situação se deve ao fato de que durante o período de estudos do SALLJEX foi utilizada uma rede de pluviômetros muito densa, o que operacionalmente, não é comum.
+
+Em relação ao skill do modelo (Viés, Erro Quadrático Médio e Correlação de Anomalia), notou-se que com a assimilação de precipitação houve uma pequena redução do viés e do erro quadrático médio, significando uma redução sensível do erro sistemático no prognóstico das variáveis verifi-cadas (Altura Geopotencial, Ventos Zonal e Meridional e Temperatura). No entanto, não foram encontradas grandes melhorias em relação à acurácia (Correlação de Anomalia) de previsão do modelo. Parte deste resultado pode ser devido à metodologia adotada para avaliação.
+
+Em suma, pode-se dizer que a Assimilação de Precipitação no sistema de assimilação de dados EtaWS+RPSAS apresentou resultados satisfatórios, principalmente para a previsão de curtíssimo prazo (6 a 24 horas), tendo sido observado ganhos substanciais de desempenho do modelo no First Guess (uma vez que com a Inicialização Física, os campos de FG já estão balanceados quando a análise é gerada, o que também implica na redução do spin-up do modelo). Os resul-tados mais sensíveis podem ser observados em baixos e em médios níveis do que em altos níveis.
+
+\subsection{Dificuldades Encontradas}
+
+O desenvolvimento de um trabalho de modelagem é acompanhado por uma série de dificuldades que devem ser tomadas como desafios. À medida em que o tempo avança e as novas tecnologias surgem, problemas antigos como os de infra-estrutura tendem a ser atenuados facilitando e possibilitando o desenvolvimento de novos trabalhos. Em contrapartida, novos problemas e dificuldades surgem e novos desafios têm que ser vencidos.
+
+Neste trabalho de dissertação, uma das principais dificuldades, em termos de infraestrutura, foi o gerenciamento do processo de modelagem em si. Sob o aspecto do software, este processo de modelagem inclui:
+
+\begin{itemize}
+\item A manipulação do modelo;
+\item Gerenciamento do código;
+\item Correção de \textit{bugs};
+\item A criação de programas e \textit{scripts} para a solução de problemas e a \-au\-to\-ma\-ti\-za\-ção de determinados processos.
+\end{itemize}
+
+Embora o CPTEC ofereça uma infra-estrutura de ponta para o desenvolvimento de um trabalho de modelagem como este, foram encontradas as seguintes dificuldades, principalmente devido à demando do uso de:
+
+\begin{itemize}
+\item Espaço em disco;
+\item Uso do \textit{cluster} para as simulações;
+\end{itemize}
+
+Além disso, houve um período em que o \textit{cluster} utilizado precisou entrar em fase de manutenção. Este tipo de problema acaba comprometendo o andamento de muitos projetos e pode ocasionar perdas de dados importantes (o que de fato ocorreu) e atrasos não previstos.
+
+\subsection{Sugestões e Trabalhos Futuros}
+
+A assimilação de dados de precipitação do TRMM utilizando o modelo EtaWS em modo não-hidrostático, com esquema de convecção \textit{cumulus} BMJ e esquema de superfície NOAH LSM, apresenta resultados satisfatório na simulação dos CCMs e na composição de outros campos. No entanto, neste trabalho não foram testado outros esquemas de convecção como \textit{Kain Fritsch} (KF) ou mesmo outros valores de umidade do solo, provenientes de fontes diferentes. Em \citeonline{rozantecavalcanti08} são realizados experimentos com o modelo Eta na simulação de CCMs com o objetivo de se determinar qual é a melhor configuração do modelo para a simulação de SCMs a leste dos Andes. Neste estudo, os autores determinaram que a melhor configuração do modelo Eta é em modo não-hidrostático, com o esquema de convecção KF e umidade do solo estimada, ao invés de climatologica.
+
+Além disso, há também disponível no CPTEC os dados do modelo Hidroestimador que também provêem estimativas de precipitação e que podem ser aproveitados para assimilação. É de interesse do centro que todos os dados que se tem disponível, sejam eles de forma direta (produzidos pelo centro tal como o Hidroestimador), sejam eles de forma indireta (tal como o TRMM), sejam aproveitados para a assimilação. Neste trabalho foram utilizados os dados do TRMM para a assimilação por ser um produto cujo objetivo é fornecer informações e caracterizar a precipitação sobre a região tropical. Da mesma forma, o Hidroestimador pode colaborar para que o conjunto de informações disponíveis para a assimilação seja incrementada.
+
+Com base nisto, para trabalhos futuros que venham a utilizar a versão do modelo EtaWS com assimilação de precipitação do TRMM e o sistema de assimilação RPSAS, é proposto o seguinte:
+
+\begin{itemize}
+\item Testar o sistema EtaWS+RPSAS com o esquema de convecção KF, com umidade do solo estimada, como proposto por \citeonline{rozantecavalcanti08};
+\item Testar o sistema EtaWS+RPSAS com a assimilação dos dados de precipitação do Hidroestimador e comparação com a assimilação do TRMM;
+\item Criar um "Merge" entre os dados do Hidroestimador e do TRMM como um produto com o qual seja possível prover uma amostragem da precipitação sobre a AS mais consistente e contínua para uso nos modelos do CPTEC;
+\end{itemize}
+
+Como próximo passo a partir deste trabalho de dissertação, tem-se a intensão de se implementar operacionalmente o sistema EtaWS+RPSAS com 20 km de resolução espacial e com a assimilação de precipitação.

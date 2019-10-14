@@ -1,0 +1,93 @@
+%% CAPITULO 4
+\hypertarget{estilo:capitulo}{}
+\chapter{ANÁLISES E RESULTADOS DA ASSIMILAÇÃO DE PRECIPITAÇÃO}
+
+\section{Resultados}
+\label{ss:resultados}
+
+Nesta dissertação de mestrado foram realizados dois experimentos de assimilação de dados de precipitação, dos quais um foi denominado CFD$\_$SAP, representando o experimento de controle. Este experimento faz uso do filtro digital original do modelo EtaWS e não assimila os dados de precipitação do TRMM. O segundo experimento, denominado CFD$\_$CAP, também faz uso do filtro digital do modelo EtaWS e assimila os dados de precipitação do TRMM. Em ambos os experimentos foram assimilados dados provenientes do GTS. A distribuição espacial típica destes dados pode ser vistas na figura 1.2 do Capítulo 1.
+
+Na análise dos resultados da assimilação de precipitação os experimentos denominados CFD$\_$SAP e CFD$\_$CAP, por mera simplicidade, serão renomeados para apenas SAP e CAP, respectivamente. Para a validação destes experimentos, foram utilizados os dados de precipitação observada do SALLJEX para o período de Janeiro de 2003. Foram feitas comparações subjetivas através da análise das diferenças dos campos de precipitação entre os experimentos e comparações objetivas (avaliação do skill) com o cálculo do Viés, Erro Quadrático Médio (EQM) e Correlação de Anomalia (CA) dos campos usuais de avaliação do skill. Estes campos são: ventos zonal e meridional, altura geopotencial, umidade relativa, temperatura do ar em 850, 500 e 250 hPa, além de água precipitável (integrado na vertical).
+
+Para o cálculo do Viés e do EQM, foram consideradas as previsões de 6, 12, 18 e 24 horas dos experimentos SAP e CAP. Foi considerada também a Reanálise 2 do NCEP/DOE como grade de destino na qual os experimentos foram interpolados. Para o cálculo da Correlação de Anomalia, foram consideradas, além das previsões de 6, 12, 18 e 24 horas e da Reanálise 2 do NCEP/DOE, uma climatologia de 50 anos obtida a partir das previsões do modelo global T126L28 do CPTEC, interpolada para a grade do Eta 20 km. 
+Em todos os cálculos, interpolou-se a grade dos experimentos e da climatologia na grade da Reanálise 2 do NCEP/DOE.
+
+Os valores apresentados nos gráficos de Viés, EQM e CA representam a média dos valores dos campos no período de 17 a 29 de Janeiro de 2003. Foi desconsiderado o período de 02 a 16 de Janeiro de 2003, por ter-se reservado este como spin-up dos experimentos.
+
+\subsubsection{Avaliação Estatística (Skill)}
+
+Para o cálculo o Viés (equação 4.1), calculou-se as diferenças entre os campos de cada experimento considerado em relação à Reanálise 2 do NCEP/DOE. A seguir foi calculada a média do campo para o domínio de 50.2ºS 10ºN e 83ºW 25.8W, respeitando-se cada saída do modelo 0, 6, 12, 18 e 24h. 0h Indica o valor da análise e 6h o valor do first guess. Os gráficos são mostrados a seguir para as seguintes variáveis: Altura Geopotencial, Vento Meridional, Vento Zonal e Temperatura Absoluta. As colunas da esquerda representam o horário sinótico de 00Z, as colunas da direita o horário das 12Z. A primeira linha apresenta os resultados para o nível das 850 hPa, a segunda linha para o nível de 500 hPa e a terceira linha, para o nível de 250 hPa. O cálculo do EQM (equação 4.2) foi feito com base nos valores calculados do Viés. Para isso, tomou-se o quadrado as diferenças entre as previsões dos experimentos e a Reanálise. Para o cálculo da CA (equação 4.3), foram calculadas as anomalias dos experimentos (SAP e CAP) e a anomalia da Reanálise, conforme a equação 4.3.
+
+\begin{equation}
+Vies=E_{i}-R_{i}
+\label{form10}
+\end{equation}
+
+\begin{equation}
+EQM=(E_{i}-R_{i})^{2}
+\label{form11}
+\end{equation}
+
+\begin{equation}
+CA=\frac{\sum_{i=1}^{5}\{[(E_{i}-C)-\overline{(E_{i}-C)}]*[(R_{i}-C)-\overline{(R_{i}-C)}]\}}{\sqrt{\sum_{i=1}^{5}[(E_{i}-C)-\overline{(E_{i}-C)}]^{2}*\sum_{i=1}^{5}[(R_{i}-C)-\overline{(R_{i}-C)}]^{2}}}*100
+\label{form12}
+\end{equation}
+
+Onde:
+
+\begin{itemize}
+\item $E$: representa um dos experimentos (SAP ou CAP);
+\item $R$: representa a Reanálise 2 do NCEP/DOE;
+\item $C$: representa a Climatologia;
+\item $E-C$: representa a anomalia dos experimentos (SAP ou CAP);
+\item $\overline{E-C}$: representa a média da anomalia dos experimentos (calculada com base no número de dias de avaliação);
+\item $R-C$: representa a anomalia da Reanálise;
+\item $\overline{R-C}$: representa a média da anomalia da Reanálise (calculada com base no número de dias de avaliação).
+\end{itemize}
+
+O índice $i$, varia de 1 a 5 e indica o tempo de previsão 0, 6, 12, 18 e 24 horas. No caso da reanálise, este índice indica a análise correspondente à hora de previsão do experimento. Para a climatologia, este índice não varia, visto que se utiliza um valor fixo para a hora sinótica avaliada (00Z e 12Z).
+
+A seguir, são apresentados os resultados encontrados com o cálculo do skill do modelo EtaWS em relação à Reanálise 2 do NCEP/DOE.
+
+Na figura 4.1.1 apresenta-se o Viés, EQM e CA da altura geopotencial para os horários das 00Z (coluna da esquerda) e 12Z (coluna da direita) para as previsões de 0 a 24 horas, no nível de 850 hPa. No geral nota-se que o experimento CAP apresenta resultados um pouco melhores no horário das 00Z durante 0 e 12 horas de previsão (figuras da coluna da esquerda) do que no horário das 12Z. No entanto, às 12Z (figuras da coluna direita) nota-se que entre 12 e 18 horas de previsão o experimento CAP apresenta resultados um pouco melhores. Isso pode ser devido ao fato de que às 12Z a quantidade de observações sinótica é um pouco mais abundante do que às 00Z. Além disso, este resultado indica que o modelo se ajustou aos dados de precipitação assimilados, se comparado com o viés presente em 6 horas de previsão e em comparação com o experimento de controle SAP, que neste mesmo horário apresenta viés quase igual a zero. Em relação ao desempenho, embora os valores de CA se apresentem aquém em relação ao que se conhece do modelo operacional Eta do CPTEC – mas considerando-se a metodologia apresentada, nota-se que o desempenho do experimento CAP, na média, foi melhor no horário das 12Z do que às 00Z. Novamente, isto pode ser devido ao fato de haver uma maior abundância de dados sinóticos assimilados na análise das 12Z, o que levou o modelo a se ajustar mais rapidamente aos dados de precipitação assimilados pelo EtaWS.
+
+
+
+
+\subsection{Dificuldades Encontradas}
+
+O desenvolvimento de um trabalho de modelagem é acompanhado por uma série de dificuldades que devem ser tomadas como desafios. À medida em que o tempo avança e as novas tecnologias surgem, problemas antigos como os de infra-estrutura tendem a ser atenuados facilitando e possibilitando o desenvolvimento de novos trabalhos. Em contrapartida, novos problemas e dificuldades surgem e novos desafios têm que ser vencidos.
+
+Neste trabalho de dissertação, uma das principais dificuldades, em termos de infraestrutura, foi o gerenciamento do processo de modelagem em si. Sob o aspecto do software, este processo de modelagem inclui:
+
+\begin{itemize}
+\item A manipulação do modelo;
+\item Gerenciamento do código;
+\item Correção de \textit{bugs};
+\item A criação de programas e \textit{scripts} para a solução de problemas e a \-au\-to\-ma\-ti\-za\-ção de determinados processos.
+\end{itemize}
+
+Embora o CPTEC ofereça uma infra-estrutura de ponta para o desenvolvimento de um trabalho de modelagem como este, foram encontradas as seguintes dificuldades, principalmente devido à demando do uso de:
+
+\begin{itemize}
+\item Espaço em disco;
+\item Uso do \textit{cluster} para as simulações;
+\end{itemize}
+
+Além disso, houve um período em que o \textit{cluster} utilizado precisou entrar em fase de manutenção. Este tipo de problema acaba comprometendo o andamento de muitos projetos e pode ocasionar perdas de dados importantes (o que de fato ocorreu) e atrasos não previstos.
+
+\subsection{Sugestões e Trabalhos Futuros}
+
+A assimilação de dados de precipitação do TRMM utilizando o modelo EtaWS em modo não-hidrostático, com esquema de convecção \textit{cumulus} BMJ e esquema de superfície NOAH LSM, apresenta resultados satisfatório na simulação dos CCMs e na composição de outros campos. No entanto, neste trabalho não foram testado outros esquemas de convecção como \textit{Kain Fritsch} (KF) ou mesmo outros valores de umidade do solo, provenientes de fontes diferentes. Em \cite{rozantecavalcanti08} são realizados experimentos com o modelo Eta na simulação de CCMs com o objetivo de se determinar qual é a melhor configuração do modelo para a simulação de SCMs a leste dos Andes. Neste estudo, os autores determinaram que a melhor configuração do modelo Eta é em modo não-hidrostático, com o esquema de convecção KF e umidade do solo estimada, ao invés de climatologica.
+
+Além disso, há também disponível no CPTEC os dados do modelo Hidroestimador que também provêem estimativas de precipitação e que podem ser aproveitados para assimilação. É de interesse do centro que todos os dados que se tem disponível, sejam eles de forma direta (produzidos pelo centro tal como o Hidroestimador), sejam eles de forma indireta (tal como o TRMM), sejam aproveitados para a assimilação. Neste trabalho foram utilizados os dados do TRMM para a assimilação por ser um produto cujo objetivo é fornecer informações e caracterizar a precipitação sobre a região tropical. Da mesma forma, o Hidroestimador pode colaborar para que o conjunto de informações disponíveis para a assimilação seja incrementada.
+
+Com base nisto, para trabalhos futuros que venham a utilizar a versão do modelo EtaWS com assimilação de precipitação do TRMM e o sistema de assimilação RPSAS, é proposto o seguinte:
+
+\begin{itemize}
+\item Testar o sistema EtaWS+RPSAS com o esquema de convecção KF, com umidade do solo estimada, como proposto por \cite{rozantecavalcanti08};
+\item Testar o sistema EtaWS+RPSAS com a assimilação dos dados de precipitação do Hidroestimador e comparação com a assimilação do TRMM;
+\item Criar um "Merge" entre os dados do Hidroestimador e do TRMM como um produto com o qual seja possível prover uma amostragem da precipitação sobre a AS mais consistente e contínua para uso nos modelos do CPTEC;
+\end{itemize}
+
+Como próximo passo a partir deste trabalho de dissertação, tem-se a intensão de se implementar operacionalmente o sistema EtaWS+RPSAS com 20 km de resolução espacial e com a assimilação de precipitação.

@@ -1,0 +1,70 @@
+%% ANEXOS
+\hypertarget{estilo:anexo}{}
+
+\chapter{ANEXO C - PROCESSOS PRINCIPAIS DO SISTEMA DE ASSIMILAÇÃO RPSAS}
+\label{anexoC}
+
+O sistema de assimilação de dados \textit{Regional Physical-space Statistical Analysis System} (RPSAS) é executado em conjunto com o modelo EtaWS. Os principais processos são mostrados no diagrama a seguir:
+
+\begin{sideways}
+\setlength{\unitlength}{1mm}
+\begin{picture}(0,0)
+\put(-120,-5){\textbf{EtaWS+RPSAS 20 CC T213L42}}
+\put(-120,-15){Gera a análise para o EtaWS fazer}
+\put(-115,-20){a previsão do próximo horário}
+\put(-105,-28){\textbf{run1$\_$repsas.ksh}}
+\put(-110,-33){(8 processadores, $\sim$ 15')}
+\put(-91,-41){\textbf{1}}
+\put(-90,-40){\circle{8}}
+
+\put(-60,-37){Interpola a condição de contorno}
+\put(-58,-42){nas grades horizontal e vertical.}
+\put(-57,-50){\textbf{run2$\_$gespre.ksh}}
+\put(-60,-55){(1 processador, $\sim$ 35")}
+\put(-66.3,-51){\textbf{2}}
+\put(-65,-50){\circle{8}}
+
+\put(-108,-123){Calcula as tendências}
+\put(-108,-128){laterais e de contorno}
+\put(-105,-110){\textbf{run5$\_$bctend.ksh}}
+\put(-109,-115){(1 processador, $\sim$ 40")}
+\put(-91,-101){\textbf{5}}
+\put(-90,-100){\circle{8}}
+
+\put(-161,-79.5){Pós-processamento}
+\put(-160,-66.5){\textbf{run7$\_$poseta.ksh}}
+\put(-163,-71.5){(1 processador, $\sim$ 1')}
+\put(-121,-71){\textbf{7}}
+\put(-120,-70){\circle{8}}
+
+\put(-52.3,-75){Interpola os campos de sup.}
+\put(-52.3,-80){superfície na grade do modelo}
+\put(-52.3,-63.5){\textbf{run3$\_$grdeta.ksh}}
+\put(-55.3,-68.5){(4 processadores, $\sim$ 4")}
+\put(-61,-71){\textbf{3}}
+\put(-60,-70){\circle{8}}
+
+\put(-56,-103.5){Extrai valores laterais}
+\put(-48,-108.5){de contorno}
+\put(-57.2,-90.5){\textbf{run4$\_$mkbond.ksh}}
+\put(-57.9,-95.5){(1 processador, $\sim$ 1')}
+\put(-66.5,-91){\textbf{4}} 
+\put(-65,-90){\circle{8}}
+
+\put(-157,-37){Prepara o FG para o}
+\put(-162,-42){RPSAS gerar a análise}
+\put(-153,-50){\textbf{run8$\_$fgeta.ksh}}
+\put(-158,-55){(1 processador, $\sim$ 1')}
+\put(-116.2,-51.4){\textbf{8}}
+\put(-115,-50){\circle{8}}
+
+\put(-154,-103.5){Calcula a previsão}
+\put(-184,-108.5){Executa o EtaWS, com FD e faz a}
+\put(-171,-113.5){Assimilação de Precipitação}
+\put(-152,-90.5){\textbf{run6$\_$fceta.ksh}}
+\put(-165,-95.5){(16 processadores, $\sim$ 15')}
+\put(-116,-91.3){\textbf{6}}
+\put(-115,-90){\circle{8}}
+\end{picture}
+\end{sideways}
+

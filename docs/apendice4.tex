@@ -1,0 +1,36 @@
+%% APÊNDICES
+\hypertarget{estilo:apendice4}{}
+
+\chapter{APÊNDICE 4 - ÍNDICES ESTATÍSTICOS}
+\label{apendice4}
+
+Para o cálculo o Viés (\autoref{form10}), calculou-se as diferenças entre os campos de cada experimento considerado em relação à Reanálise 2 do NCEP/DOE. A seguir foi calculada a média do campo para o domínio de 50.2$ºS$ 10$ºN$ e 83$ºW$ 25.8$ºW$, respeitando-se cada saída do modelo 0, 6, 12, 18 e 24h. 0h Indica o valor da análise e 6h o valor do \textit{first guess}. O cálculo do EQM (\autoref{form11}) foi feito com base nos valores calculados do Viés. Para isso, tomou-se o quadrado as diferenças entre as previsões dos experimentos e a Reanálise. Para o cálculo da CA (\autoref{form12}), foram calculadas as anomalias dos experimentos (SAP e CAP) e a anomalia da Reanálise.
+
+\begin{equation}
+Vies=E_{i}-R_{i}
+\label{form10}
+\end{equation}
+
+\begin{equation}
+EQM=(E_{i}-R_{i})^{2}
+\label{form11}
+\end{equation}
+
+\begin{equation}
+CA=\frac{\sum_{i=1}^{5}\{[(E_{i}-C)-\overline{(E_{i}-C)}]*[(R_{i}-C)-\overline{(R_{i}-C)}]\}}{\sqrt{\sum_{i=1}^{5}[(E_{i}-C)-\overline{(E_{i}-C)}]^{2}*\sum_{i=1}^{5}[(R_{i}-C)-\overline{(R_{i}-C)}]^{2}}}*100
+\label{form12}
+\end{equation}
+
+Onde:
+
+\begin{itemize}
+\item $E$: representa um dos experimentos (SAP ou CAP);
+\item $R$: representa a Reanálise 2 do NCEP/DOE;
+\item $C$: representa a Climatologia;
+\item $E-C$: representa a anomalia dos experimentos (SAP ou CAP);
+\item $\overline{E-C}$: representa a média da anomalia dos experimentos (calculada com base no número de dias de avaliação);
+\item $R-C$: representa a anomalia da Reanálise;
+\item $\overline{R-C}$: representa a média da anomalia da Reanálise (calculada com base no número de dias de avaliação).
+\end{itemize}
+
+O índice $i$, varia de 1 a 5 e indica o tempo de previsão 0, 6, 12, 18 e 24h horas. No caso da reanálise, este índice indica a análise correspondente à hora de previsão do experimento. Para a climatologia, este índice não varia, visto que se utiliza um valor fixo para a hora sinótica avaliada (00Z e 12Z).

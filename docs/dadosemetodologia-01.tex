@@ -1,0 +1,81 @@
+%% CAPITULO 3
+\hypertarget{estilo:capitulo}{}
+\chapter{DADOS E METODOLOGIA}
+
+Neste capítulo são apresentados os dados utilizados nos experimentos com o sistema EtaWS+RPSAS bem como os dados utilizados para a validação dos resultados dos experimentos. São apresentados também os experimentos realizados e a metodologia adotada para avaliação dos resultados.
+
+\section{Dados}
+\label{ss:dados}
+
+\subsection{Dados Não-Convencionais}
+
+\subsubsection{Tropical Rainfall Measuring Mission (TRMM)}
+
+O satélite \textit{Tropical Rainfall Measuring Mission} (TRMM) foi lançado em 1997 e é um projeto de parceria entre a NASA e a \textit{Japan Aerospace eXploration Agency} (JAXA), tendo como missão principal fornecer informações sobre a estrutura e a distribuição espacial da precipitação, sua influência no clima das regiões tropical e subtropical e sua importância no ciclo hidrológico \cite{simpsonetal88} e \cite{simpsonetal96}.
+
+O TRMM possui órbita polar com 35º de inclinação a $\sim$380 km de altura, com alta resolução temporal (possui um período de translação de aproximadamente 90 minutos e 16 órbitas por dia) varrendo as faixas de latitudes tropicais de 50ºN a 50ºS. Além disso, o TRMM é equipado com sensores específicos para o estudo da precipitação possibilitando a aquisição de informações sobre a precipitação tropical, relâmpagos e sobre a energia radiante das nuvens e da superfície terrestre. Estes sensores incluem:
+
+\begin{itemize}
+\item Imageador de microondas (TMI);
+\item Radar de precipitação (PR);
+\item Radiômetro no visível e no infravermelho (VIRS);
+\item Sensor de energia radiante da superfície terrestre e das nuvens (CERES);
+\item Sensor para imageamento de relâmpagos (LIS).
+\end{itemize}
+
+Além disso, as estimativas de precipitação são validadas em superfície através de um programa em paralelo denomidano \textit{Groud Validadtion} (GV) que conta com uma série de radares meteorológicos em superfície espalhados ao longo da faixa intertropical \cite{collischonnetal07}. 
+
+Os dados estimados de precipitação provenientes do TRMM, que foram utilizados nos experimentos de assimilação de precipitação deste trabalho, possuem resolução espacial 0.25º (0.25ºx0.25º - latitude x longitude) e resolução temporal de 3 horas. As estimativas de precipitação calculadas pelo TRMM são obtidas a partir do algoritmo 3B42 que utiliza informações sobre a estrutura vertical das nuvens.
+
+O algoritmo 3B42 é uma combinação de estimativas de precipitação por microondas e infravermelho corrigidas através das informações sobre a estrutura vertival das nuvens, obtidas pelo radar de precipitação a bordo do satélite. O algoritmo para o cálculo das estimativas segue os seguintes passos:
+
+\begin{enumerate}
+\item Estima-se a precipitação com informações de dados de microondas (TMI);
+\item Estima-se a precipitação com informações do canal infravermelho (VIRS);
+\item Calibra-se a precipitação estimada por microondas e por infravermelho através do radar de precipitação (PR), disponibilizando-se as estimativas finais de precipitação a cada hora.
+\end{enumerate}
+
+O modelo EtaWS gera campos acumulados de precipitação convectiva, de larga escala e total. Os campos de precipitação de larga escala, representam a precipitação estratiforme, sendo portanto, diferentes dos campos de precipitação convectiva. Os campos de precipitção do modelo EtaWS comparados com os campos de precipitação do TRMM, são os campos de precipitação total. Os campos de precipitação do TRMM são representados por taxas de precipitação horária (interpretada como a taxa de precipitação efetiva das horas nominais de observação) e os campos do EtaWS representam a precipitação acumulada para os horários sinóticos de previsão. Para a comparação com os campos de precipitação do modelo EtaWS, foi necessátio acumular-se a precipitação do TRMM utilizando-se um programa FORTRAN. Este programa lê precipitação do TRMM em três horários diferentes e os acumula, fornecendo um novo campo de precipitação acumulado. Este campo é, então, utilizado para a comparação com os campos gerados pelo modelo EtaWS.
+
+Para comparação com os experimentos, as informações de precipitação do SALLJEX forma interpoladas na a grade do modelo EtaWS utilizando-se as informações do superfície (da rede de observações do GTS e de estações automáticas de várias agências da AS). Esta técnica, nomeada de MERGE, utiliza as informações em ponto de grade do TRMM e as estações espalhadas sobre a rede da AS. Estas duas informações, são então, combinadas utilizando-se o método de análise objetiva de Barnnes \cite{rozanteetal09}.
+
+\subsection{Dados Convencionais}
+
+\subsubsection{South America Low Level Jet EXperiment (SALLJEX)}
+
+O \textit{South American Low-Level Jet EXperiment} (SALLJEX) é um experimento de campo iniciado no centro-oeste da AS durante o período de 15 de novembro de 2002 a 14 de fevereiro de 2003 \cite{vera06}, \cite{herdiesetal07}. O programa \textit{South American Low-Level Jet} (SALLJ), um componente do programa \textit{Climate Variability and Predictability/Variabilty of the American Monsoon Systems} (CLIVAR/VAMOS). Em linhas gerais, o SALLJEX é um esforço coordenado internacionalmente para melhorar o entendimento do papel que os JBNs desempenham sobre a AS no transporte de umidade e nas trocas de energia entre os trópicos e extratrópicos, além da caracterização de aspectos da hidrologia regional, clima e variabilidade climática para a região de monção da AS \cite{herdiesetal07}.
+
+Durante a campanha, uma densa rede de pluviômetros foi instalada, além de 6 estações provisórias de ar superior e 16 estações de balão piloto no Peru, Bolívia, Paraguai, Argentina e Brasil. A distribuição espacial das radiossondagens pode ser encontrada em \cite{herdiesetal07}. 
+
+\subsubsection{Reanálise 2 NCEP/DOE}
+
+A Reanálise 2 do NCEP/DOE (KANAMITSU, 2002) é a versão corrigida da Reanálise 1 do NCAR (KALNAY, 1996). Esta nova reanálise tem como objetivo introduzir melhorias e correções. A Reanálise 2 do NCEP/DOE foi construída utilizando-se o modelo global T62L28 do NCEP e cobre o período de 1979 a 2009, tendo-se como meta expandir-se até 1950. Os dados da reanálise 2 do NCEP tem como principal objetivo fornecer informações mais acuradas sobre o passado utilizando dados de observação e modelagem numérica. As principais vantagens em se utilizar esta nova versão da reanálise em relação à sua versão anterior está na melhor representação do ciclo hidrológico, campos aprimorados de umidade do solo e temperatura à superfície, precipitação, cobertura de neve e outro.
+
+\subsection{Experimentos}
+
+Para esta dissertação de mestrado foram realizados dois experimentos, um denominado CFD$\_$SAP e outro denominado CFD$\_$CAP. Ambos os experimentos utilizam o filtro digital do modelo EtaWS (CFD). O primeiro CFD$\_$SAP, é o experimento de controle e não assimila os dados de precipitação provenientes do TRMM. O segundo experimento, CFD$\_$CAP, assimila os dados de precipitação do TRMM. 
+
+A intenção de se utilizar o FD original do modelo EtaWS é filtrar o ruído que pode ser causado pela inclusão dos dados de precipitação no ciclo de assimilação de precipitação do EtaWS.
+
+Com estes experimentos, integrou-se o modelo EtaWS durante o mês de Janeiro de 2003, com saídas de previsões a cada 6 horas, sendo produzidas previsões de 6, 12, 18 e 24 horas, com \textit{spin up} de 15 dias (do dia 02 de Janeiro de 2003 até o dia 15 de Janeiro de 2003).
+
+Nos dois experimentos, a condição inicial para o inicia das integrações foi obtida a partir das análises do NCEP. A condição de contorno refere-se às previsões do modelo global T126L28 (aproximadamente 126 ondas no Equador e 28 níveis verticais).
+
+\begin{table}
+\caption{Experimentos realizados}
+\label{tab04}
+\centering
+\begin{tabular}{c|c|c|c}
+\hline 
+Experimento & Condição Inicial & Condição de Contorno & Descrição\tabularnewline
+\hline 
+CFD\_SAP & NCEP/EtaWS & T213L42 & Sem precipitação\tabularnewline
+\hline 
+CFD\_CAP & NCEP/EtaWS & T213L42 & Com precipitação\tabularnewline
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Avaliação}
+
+

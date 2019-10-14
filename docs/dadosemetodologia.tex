@@ -1,0 +1,47 @@
+%% CAPITULO 3
+\hypertarget{estilo:capitulo}{}
+\chapter{DADOS E METODOLOGIA}
+
+Neste capítulo são apresentados os dados utilizados nos experimentos com o modelo EtaWS bem como os dados utilizados para a validação dos resultados dos experimentos. São apresentados também os experimentos realizados e a metodologia adotada para avaliação dos resultados.
+
+\section{Dados}
+\label{ss:dados}
+
+\subsection{Dados Estimados}
+
+\subsubsection{Tropical Rainfall Measuring Mission}
+
+O satélite Tropical Rainfall Measuring Mission (TRMM) foi lançado em 1997 e é um projeto de parceria entre a NASA e a Japan Aerospace eXploration Agency (JAXA), tendo como missão principal  fornecer informações sobre a estrutura e a distribuição espacial da precipitação, sua influência no clima das regiões tropical e subtropical e sua importância no ciclo hidrológico (SIMPSON et al., 1988, 1996).
+O TRMM possui órbita polar com 35$\,^{circ}$ de inclinação a 380 km de altura, com alta resolução temporal (possui um período de translação de aproximadamente 90 minutos e 16 órbitas por dia) varrendo as faixas de latitudes tropicais (50$\,^{circ}$N e 50$\,^{circ}$S). Além disso, o TRMM é equipado com sensores específicos para o estudo da precipitação possibilitando a aquisição de informações sobre a precipitação tropical, relâmpagos e sobre a energia radiante das nuvens e da superfície terrestre.
+
+Os dados estimados de precipitação provenientes do TRMM, que foram utilizados nos experimentos de assimilação de precipitação deste trabalho, possuem resolução espacial (com 0.25$\,^{circ}$ x 0.25$\,^{circ}$ - latitude x longitude) e resolução temporal de 3 horas. As estimativas de precipitação calculadas pelo TRMM são obtidas a partir do algoritmo 3B42, utilizando informações sobre a estrutura vertical das nuvens. Cada campo de precipitação do TRMM é melhor interpretado como a taxa de precipitação efetiva das horas nominais de observação.
+
+O algoritmo 3B42 produz estimativas de precipitação utilizando medidas de radiação infravermelha (canal IV) e de microondas passivo. O algoritmo para o cálculo das estimativas segue os seguintes passos:
+
+\begin{enumerate}
+\item Estima-se a precipitação com informações de dados de microondas;
+\item Estima-se a precipitação com informações do canal infravermelho;
+\item Calibra-se a precipitação estimada por microondas e por infravermelho, disponibilizando-se as estimativas finais de precipitação a cada hora.
+\end{enumerate}
+
+\subsection{Observações}
+
+\subsubsection{South America Low Level Jet EXperiment}
+
+O South American Low-Level Jet EXperiment (SALLJEX) é um experimento de campo iniciado no centro-oeste da AS durante o período de 15 de novembro de 2002 a 14 de fevereiro de 2003 (VERA, 2006; HERDIES et al. 2007). O programa South American Low-Level Jet (SALLJ), um componente do programa Climate Variability and Predictability/Variabilty of the American Monsoon Systems (CLIVAR/VAMOS), em linhas gerais, é um esforço coordenado internacionalmente para uma maior compreensão do papel que os JBN desempenham sobre a AS no transporte de umidade e nas trocas de energia entre os trópicos e extratrópicos, além da caracterização de aspectos da hidrologia regional, clima e variabilidade climática para a região de monção da AS (HERDIES et al., 2007).
+
+Durante a campanha, uma grande rede de pluviômetros foi instalada, além de 6 estações provisórias de ar superior e 16 novas estações de balão piloto no Peru, Bolívia, Paraguai, Argentina e Brasil. A Figura 8 mostra a distribuição espacial das radiossondagens e dos balões-piloto utilizados durante o período de estudos do SALLJEX na AS. As informações providas pelo experimento são de grande importância para a execução do presente trabalho, pois representam dados de superfície e de radiossondagem (com 1$\,^{circ}$ de resolução espacial) que serão utilizados para a avaliação dos processos de assimilação com o sistema de assimilação de dados RPSAS do CPTEC.
+
+\subsubsection{Reanálise 2 NCEP/DOE}
+
+A Reanálise 2 do NCEP/DOE (KANAMITSU, 2002) é a versão corrigida da Reanálise 1 do NCAR (KALNAY, 1996). Esta nova reanálise tem como objetivo introduzir melhorias e correções. A Reanálise 2 do NCEP/DOE foi construída utilizando-se o modelo global T62L28 do NCEP e cobre o período de 1979 a 2009, tendo-se como meta expandir-se até 1950. Os dados da reanálise 2 do NCEP tem como principal objetivo fornecer informações mais acuradas sobre o passado utilizando dados de observação e modelagem numérica. As principais vantagens em se utilizar esta nova versão da reanálise em relação à sua versão anterior está na melhor representação do ciclo hidrológico, campos aprimorados de umidade do solo e temperatura à superfície, precipitação, cobertura de neve e outro.
+
+\subsection{Experimentos}
+
+Para esta dissertação de mestrado foram realizados dois experimentos, um denominado CFD$\_$SAP e outro denominado CFD$\_$CAP. Ambos os experimentos utilizam o filtro digital do modelo EtaWS (CFD). O primeiro CFD$\_$SAP, é o experimento de controle e não assimila os dados de precipitação provenientes do TRMM. O segundo experimento, CFD$\_$CAP, assimila os dados de precipitação, como descrito no Capítulo 1, item 1.3.4. 
+
+A intenção de se utilizar o Filtro Digital (LYNCH e HUANG, 1992) original do EtaWS é filtrar as ondas de gravidade que podem ser causadas pela inclusão dos dados de precipitação pelo próprio modelo EtaWS.
+
+Com estes experimentos, integrou-se o modelo EtaWS durante o mês de Janeiro de 2003, com saídas de previsões a cada 6 horas, sendo produzidas previsões de 6, 12, 18 e 24 horas.
+
+Nos dois experimentos, a condição inicial para o inicia das integrações foi obtida a partir das análises do NCEP (National Centers for Environmental Predictions). A condição de contorno refere-se às previsões do modelo global T126L28 (aproximadamente 126 ondas no Equador e 28 níveis verticais). Estas previsões são necessárias porque os modelos regionais (como é o caso do Eta) possuem uma área limitada (um domínio), e para que eles possam simular corretamente o fluxo atmosférico (cujo domínio é global) é necessário ter-se uma condição, uma informação sobre como (em um determinado instante) está ocorrendo esse fluxo. A condição de contorno tem, portanto, a função de informar ao modelo como simular o fluxo atmosférico dentro do seu domínio.

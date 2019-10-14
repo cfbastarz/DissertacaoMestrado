@@ -1,0 +1,61 @@
+%% ESTRUTURA DO DOCUMENTO
+\documentclass[PublicacaoDissOuTese,brazilian]{tdiinpe}
+
+%% TEXTO EM ARIAL
+%\renewcommand{\rmdefault}{phv} % Arial
+%\renewcommand{\sfdefault}{phv} % Arial
+
+%% PUBLICAÇÃO EM INGLÊS
+% renomear o arquivo: abnt-alf.bst para abnt-alfportuguese.bst
+% renomear o arquivo: abnt-alfenglish.bst para abnt-alf.bst
+
+\usepackage{verbatim}
+\usepackage[utf8x]{inputenc}
+\usepackage{rotating}
+\usepackage{dsfont}
+\usepackage[all]{xy}
+\usepackage[all]{pstricks}
+\usepackage{enumerate}
+%\watermark{Revisão No. 50}
+\input{./configuracao}
+\makeindex
+
+\begin{document}
+%% CAPAS E OUTRAS ESTRUTURAS
+\maketitle
+\include{./docs/epigrafe}
+\include{./docs/dedicatoria}
+\include{./docs/agradecimentos}
+\include{./docs/resumo-05}
+\include{./docs/abstract-05}
+\includeListaFiguras
+\includeListaTabelas
+\include{./docs/abreviaturasesiglas-02}
+\include{./docs/simbolos-03}
+\includeSumario
+\inicioIntroducao
+
+%% CAPITULOS
+\include{./docs/introducao-08}
+\include{./docs/dadosemetodologia-12}
+\include{./docs/resultados-14}
+\include{./docs/estudodecaso-08}
+\include{./docs/conclusoessugestoes-04}
+
+%% FINAL DO DOCUMENTO
+\bibliography{./bib/publicacao-03}
+\hypertarget{references}{}
+%\include{./docs/glossario}
+\inicioApendice
+\include{./docs/apendice1}
+\include{./docs/apendice2}
+\include{./docs/apendice3}
+\include{./docs/apendice4}
+%\inicioAnexo
+%\include{./docs/anexoA}
+%\include{./docs/anexoB}
+%\include{./docs/anexoC}
+%\include{./docs/anexoD}
+%\inicioIndice
+\include{./docs/contracapa}
+\end{document}

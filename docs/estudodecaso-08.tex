@@ -1,0 +1,79 @@
+%% CAPITULO 4
+\hypertarget{estilo:capitulo}{}
+\chapter{ESTUDO DE CASO DE COMPLEXO CONVECTIVO DE MESOESCALA}
+\label{ss:cap4}
+
+Durante o período do projeto SALLJEX, foram identificados em torno de 100 SCMs entre as bacias Amazônica e do Prata, no Altiplano Sul-americano. No mês de Janeiro de 2003, ocorreram dois casos de CCMs, o primeiro no dia 18 de Janeiro e o segundo no dia 23 de Janeiro. Autores como \citeonline{zipseretal04} estudaram estes eventos e outros estudos numéricos foram realizados com o objetivo de se verificar se os modelos de PNT eram capazes de simular as principais características dos CCMs. \citeonline{paegleetal04} comparam vários modelos regionais, dentre eles versões diferentes dos modelos RAMS, MM5 e Eta (incluindo o modelo regional operacional, na época, do CPTEC - Eta 40 $km$). Os autores mostram que existe uma grande variação entre as previsões dos diferentes modelos e apontam as possíveis causas como sendo condições iniciais e de contorno não muito realistas, dados de baixa qualidade, dinâmica e parametrizações físicas inadequadas para a simulação desse tipo de fenômenos meteorológicos em regiões específicas do globo. Neste mesmo caso, os autores mostram também, como exemplo, o caso do CCM ocorrido no dia 18 de Janeiro em que os modelos regionais não foram capazes de simular as principais características do CCM. Em altas resoluções (e.g., 20 $km$), os modelos regionais são capazes de prever grandes acumulados de precipitação, mas, no entanto, não refletem bem as características associada aos SCMs. \citeonline{paegleetal04} ainda apontam para o fato de que a inicialização e a validação dos modelos podem beneficiar a análises geradas pelos modelos de previsão.
+
+Para este estudo de caso, foi escolhido o CCM ocorrido no dia 23 de janeiro de 2003. Em \citeonline{rozantecavalcanti06} são feitas simulações sobre o CCM do dia 18 de Janeiro de 2003 e outros experimentos numéricos com o modelo Eta durante o período da campanha do SALLJEX. 
+
+Na \autoref{fig61} são mostradas as imagens do canal 4 (infravermelho) do satélite \textit{Geostationary Satellite Server} (GOES) 8. Nestas imagens, pode-se observar um CCM que começou a se formar no dia 22 de janeiro de 2003 às 18Z, tendo seu ciclo de vida com duração total de um dia, culminando ao dia 23 de janeiro de 2003 às 12Z. Na \autoref{fig62}, é mostrada a precipitação diária observada do SALLJEX, acumulada às 12Z.
+
+\begin{figure}
+\centering
+a)\includegraphics[height=4.3cm]{./figs/sat01.png}\hspace{0.2cm}b)\includegraphics[height=4.3cm]{./figs/sat02.png}\hspace{0.2cm}
+c)\includegraphics[height=4.3cm]{./figs/sat03.png}\hspace{0.2cm}d)\includegraphics[height=4.3cm]{./figs/sat04.png}
+\\[0.15cm]
+e)\includegraphics[height=4.3cm]{./figs/sat05.png}\hspace{0.2cm}f)\includegraphics[height=4.3cm]{./figs/sat06.png}\hspace{0.2cm}
+g)\includegraphics[height=4.3cm]{./figs/sat07.png}\hspace{0.2cm}h)\includegraphics[height=4.3cm]{./figs/sat08.png}
+\caption{Imagens do Satélite GOES 8 no canal 4 (infravermelho). Evolução de um Complexo Convectivo de Mesoescala. Nas figuras: a) 20030122$\_$18Z; b) 20030122$\_$21Z; c) 20030123$\_$00Z; d) 20030123$\_$03Z; e) 20030123$\_$06Z; f) 20030123$\_$09Z; g) 20030123$\_$12Z; h) 20030123$\_$15Z.}
+\label{fig61}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[height=15cm]{./figs/prec_salljex1.png}
+\caption{Precipitação observada diária SALLJEX, acumulados das 12Z. Nas figuras: a) 20030122$\_$12Z; b) 20030123$\_$12Z; c) 20030124$\_$12Z.}
+\label{fig62}
+\end{figure}
+
+\break
+
+Com as simulações dos experimentos SAP e CAP, buscou-se observar se o modelo de previsão Eta e o sistema de assimilação de dados RPSAS foram capazes de simular esse complexo convectivo, através da simulação dos seguintes parâmetros: ciclo de vida (duração), intensidade, posicionamento e precipitação associada.
+
+Diante das configurações ajustadas para o modelo de previsão Eta (com e sem a assimilação de precipitação, com filtro digital e no modo hidrostático), e comparando-se o resultado dos experimentos com os dados do SALLJEX e do TRMM, pode-se notar que sem a assimilação de precipitação (experimento SAP), o modelo não foi capaz de reproduzir o evento de precipitação ocasionado pelo CCM. Apenas com a assimilação de precipitação (experimento CAP), o modelo foi capaz de reproduzir a precipitação ocasionada pelo CCM.
+
+Para efeito de comparação, vale lembrar que durante o experimento de campo do SALLJEX, foram instalados vários pluviógrafos adicionais na região de estudo o que favoreceu uma descrição muito mais minuciosa dos acumulados de precipitação. A precipitação do TRMM3B42, embora possua uma resolução temporal mais refinada (3 horas), mostra que em seus acumulados uma distribuição de precipitação mais discreta do que a do SALLJEX, principalmente às 06Z do dia 23 de Janeiro de 2003, quando o CCM atinge seu estágio maduro. O campo de precipitação produzido pelo modelo Eta, com o experimento CAP, apresenta também taxas de precipitação inferiores àquelas observadas no SALLJEX, embora sua distribuição espacial seja concordante com o que foi encontrado na observação.
+
+Observando-se as imagens do canal infravermelho do GOES 8, nota-se que o CCM começou a se formar às 18Z do dia 22 de Janeiro e atinge o seu estágio maduro (o máximo de precipitação) às 06Z do dia 23, quando observa-se os critérios de forma tamanho e tempo de duração definidos por \citeauthoronline{maddox80} para a caracterização do CCM.
+
+As imagens da \autoref{fig63} mostram a precipitação estimada do TRMM correspondentes às imagens de satélite do GOES 8.
+
+\begin{figure}[!hpb]
+\centering
+\includegraphics[height=15cm]{./figs/prec_trmm3b42.png}
+\caption{Precipitação Estimada TRMM3B42. Evolução de um CCM. Nas figuras: a) 20030123$\_$00Z; b) 20030123$\_$03Z; c) 20030123$\_$06Z; d) 20030123$\_$09Z; e) 20030123$\_$12Z; f) 20030123$\_$15Z; g) 20030123$\_$18Z; h) 20030123$\_$21Z.}
+\label{fig63}
+\end{figure}
+
+\break
+
+Os campos de precipitação produzidos pelo modelo Eta com os experimentos SAP e CAP, mostram diferenças significativas durante as previsões de 6, 12, 18 e 24 horas. A assimilação dos dados de precipitação fez com que o modelo Eta reproduzisse de forma relativamente satisfatória o campo de precipitação apresentado na imagem ``c'' da \autoref{fig63}. No entanto, levando-se em consideração os esquemas físicos do modelo,  a melhor discretização dos tipos de solo do modelo de superfície NOAH e o esquema de convecção BMJ, nota-se também que as simulações do experimento CAP tendem a superestimar e a espalhar um pouco mais a precipitação nos horários subsequentes à 06Z do dia 23 de Janeiro (\autoref{fig64}).
+
+\begin{figure}[!hpb]
+\centering
+\includegraphics[height=15cm]{./figs/prec_eta1.png}
+\caption{Precipitação Prevista pelo sistema Eta+RPSAS a partir do dia 23/01/2003. Nas figuras: (primeira coluna) previsões de a) 6h; b) 12h; c) 18h e d) 24h para o experimento SAP, (segunda coluna) previsões e) 6h; f) 12h; g) 18h e h) 24h para o experimento CAP.}
+\label{fig64}
+\end{figure}
+
+\break
+
+
+Para efeito de se verificar a quantidade de umidade transportada pelo JBN a disponível para a atividade convectiva, a \autoref{fig66} mostra a seção vertical do fluxo de umidade para a latitude de 22$ºS$. Nesta figura são mostrados os resultados encontrados para os experimentos SAP (primeira linha) e CAP (segunda linha). Nesta figura nota-se que o fluxo de umidade apresentado pelo experimento CAP às 06Z do dia 23 apresenta valores elevados (da ordem de 100 $g/kg$ $m/s$).
+
+\begin{figure}[!h]
+\centering
+\includegraphics[height=10.5cm]{./figs/sec_vert_flux_umi.png}
+\caption{Seção vertical do fluxo de umidade ($qv$) ao longo da latitude de 22$ºS$, às 18Z do dia 22 (coluna da esquerda - letras ``a'' e ``d''), às 00Z do dia 23 (coluna do meio - ``b'' e ``e'') e às 06Z do dia 23 de Janeiro (coluna da direita - letras ``c'' e ``f''). Os contornos estão em $g/kg$ $m/s$.}
+\label{fig66}
+\end{figure}
+
+A \autoref{fig67} mostra os campos de velocidade vertical (Omega) em 700 $hPa$ para os experimentos SAP e CAP e a precipitação do SALLJEX. Comparando-se os dois experimentos, nota-se que o experimento CAP foi capaz de detalhar melhor o desenvolvimento vertical das nuvens convectivas associadas ao CCM. Os sombreados em ciano representam valores de -0.2 $Pa/s$. Em \citeonline{herdiesetal07} estes valores são de -0.5 $Pa/s$.
+ 
+\begin{figure}[!ht]
+\centering
+\includegraphics[height=8.5cm]{./figs/omega.png}
+\caption{Velocidade vertical em 700 $hPa$ para os experimentos a) SAP e b) CAP. Em ambos os casos são mostradas as previsões de 6 horas. Em c) precipitação observada do SALLJEX. Os sombreados em ciano apresentam valores iguais a -0.2 $Pa/s$.}
+\label{fig67}
+\end{figure}

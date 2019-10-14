@@ -1,0 +1,97 @@
+%% ANEXOS
+\hypertarget{estilo:anexo}{}
+
+\chapter{ANEXO B - MANUAL DO MODELO EtaWS}
+\label{anexoB}
+
+Este anexo contém um documento cujo objetivo é apresentar uma descrição detalhada sobre o funcionamento e a utilização do modelo Eta Workstation (EtaWS) acoplado com o sistema de assimilação \textit{Rgeional Physical-space Statistical Analysis System} (RPSAS), que em conjunto pode ser chamado de EtaWS+RPSAS. Tem-se por intenção que a utilização deste documento sirva de referência para futuros utilizadores do sistema, seja como fonte de referência bibliográfica ou como fonte de informação sobre sua utilização. 
+
+Neste anexo, são apresentadas também definições técnicas sobre o ambiente de execução no qual o modelo foi utilizado para a realização dos experimentos desenhados para esta dissertação de mestrado.
+
+Este anexo está dividido nas seguintes subseções:
+
+\begin{enumerate}
+\item Introdução;
+\item Ambiente de Execução;
+\item Definições da Grade Horizontal;
+\item Definição dos Níveis Verticais;
+\item Definição da Orografia;
+\item Pré-Processamento e Inicialização;
+\item Pós-Processamento;
+\item Outras Definições.
+\end{enumerate}
+
+\section{Introdução}
+\label{ss:introeta}
+
+Este documento de referência do sistema EtaWS+RPSAS foi adicionado como anexo desta dissertação de mestrado como uma contribuição aos futuros utilizadores da versão do modelo EtaWS e do sistema RPSAS, utilizados neste trabalho. Este manual foi adaptado do manual escrito por Chris Peters em 1996, originalmente da versão antiga do modelo Eta e do manual escrito por Matthew E. Pyle em 2001, sobre uma versão não hidrostática do modelo EtaWS, mais recente e portanto muito próxima à versão utilizada nos experimentos desta dissertação de mestrado (modelo EtaWS+RPSAS - modelo EtaWS acoplado ao sistema de assimilação RPSAS). Foi utilizado também o manual do modelo Eta utilizado pelo Laboratório Nacional de Computação Científica (LNCC), datado de 2004 e alguns documentos técnicos do CPTEC.
+
+Este documento tem por objetivo fornecer informações específicas e mais detalhadas sobre o funcionamento e utilização do modelo Eta Workstation (EtaWS) sobre o domínio da América do Sul (AS). Este documento de referência poderá ser utilizado como referência para a futura implementação operacional do modelo EtaWS+RPSAS.
+
+\section{Ambiente de Execução}
+\label{ss:ambexeceta}
+
+No parque computacional do Centro de Previsão de Tempo e Estudos Climáticos (CPTEC), o sistema EtaWS+RPSAS foi executado no cluste UNA, com 1100 processadores. O sistema operacional utilizado é o Linux comum com otimizado para clusters. No ambiente são utilizadas também rotinas especiais para paralelização do ambiente.
+
+Nas subseções a seguir, são apresentadas os detelhes e definições do sistema EtaWS+RPSAS.
+
+\section{Grade Horizontal}
+\label{ss:gradehorizontal}
+
+Uma das primeiras tarefas a serem realizadas com o modelo EtaWS, é a definição dos parâmetros da grade horizontal do modelo. Estes parâmetros são:
+
+\begin{enumerate}
+\item Localização;
+\item Tamanho;
+\item Resolução;
+\end{enumerate}
+
+O modelo EtaWS utiliza a grade semi-alternada E de Arakawa, assim como na versão antiga do modelo. Uma das principais características deste tipo de grade, é que os pontos de massa são alternados com os pontos de ventos da seguinte maneira, como ilustrado na figura a seguir:
+
+FIGURA
+
+A grade do modelo é configurada sobre uma grade de latitudes/longitudes rotacionadas, ou seja, as coordenadas terrestres são rotacionadas de forma que o centro da grade permaneça no ponto onde a linha imaginária do Equador cruza o primeiro meridiano. Para se definir a localização da grade E de Arakawa na terra, deve-se especificar as latitudes/longitudes geodésicas do ponto central da grade.
+
+Para se definir os parâmetros de localização tamanho e resolução da grade do modelo, os seguintes parâmetros devem ser explícitamente especificados nos arquivos de parâmetros, que são utilizados para a compilação do modelo:
+
+\begin{itemize}
+\item $IM$: Número de pontos de massa ao longo da primrira linha da grade;
+\item $JM$: Número de linhas norte-sul (=5 no exemplo);
+\item $IMJM$: Número total de pontos de massa em ponto de grade = $IM*JM-JM/2=18$ (no exemplo acima);
+\item $TLM0D$: Longitude geodésica (+=deg E) do centro da grade E;
+\item $TPH0D$: Latitude geodésica (+=deg N) do centro da grade N;
+\item $DLMD$: Incremento oeste-leste na grade transformada (em graus);
+\item $DPHD$: Incremento norte-sul na grade transformada (em graus);
+\item $WBD$: Longitude transformada da fronteira oeste da grade do modelo;
+\item $SBD$: Latitude transformada da fronteira sul da grade do modelo.
+\end{itemize}
+
+Para a região do Brasil, pode-se ajustar o modelo com uma resolução de 20 km com os seguintes parâmetros:
+
+\begin{table}[htbp]
+\caption{Exemplos de configurações dos parâmetros de grade para \-di\-fe\-ren\-tes resoluções da grade do modelo EtaWS.}
+\begin{tabular}{l|l|r|l|r|r|r}
+\hline
+ & 80 km & \multicolumn{1}{l|}{48 km} & 40 km & \multicolumn{1}{l|}{32 km} & \multicolumn{1}{l|}{29 km} & \multicolumn{1}{l}{15 km} \\ \hline
+DLMD (deg) & 15/26 & 1/3 & \multicolumn{1}{r|}{5/18} & 7/1 & 7/1 & 3/31 \\ \hline
+DPHD (deg) & 14/26 & 4/13 & 15/57 & 1/5 & 5/27 & 2/21 \\ \hline
+\end{tabular}
+\label{tabB01}
+\end{table}
+
+$WBD$ e $SBD$ são funções do tamanho e resolução da grade. O programa WSB.all calcula estes parâmetros.
+
+Em alguns códigos o parâmtro TL0MD é definido como graus nagativos de longitude oeste e, em outros códigos como graus positivos de longitude oeste e em outros é definido como graus positivos de longitude leste.
+
+No código do modelo EtaWS, a variável IMJM é utilizada para indexação. IMJM é incrementada linha por linha para cada par de pontos de massa-vento (H-V). No exemplo acima, seja K=1,IMJM. No código do modelo, algumas variáveis são indexadas por (IMJM,LM), onde LM é o número de níveis verticais do modelo. T(1,1) é o valor da temperatura no meio do nível mais alto do modelo no ponto mais a sudeste H. u(1,1) é a componente $u$ do vento no topo da camada média no ponto V à direita do ponto K=1 H. Observe que enquanto o ponto K=4 H está no canto sudeste da grade, o ponto k=4 V está localizado na próxima linha do limite lateral oeste.
+
+\subsection{Coordenada Vertical}
+\label{ss:coordenadavertical}
+
+A coordenada vertical do modelo EtaWS é uma generalização da coordenada sigma $\sigma$. Embora ambas as coordenadas, eta ($\eta$) e sigma ($\sigma$) são baseadas na pressão e normalizadas de 0 a 1, a coordenada eta é normalizada em relação à pressão do nível do mar, e a sigma em relação à superfície de pressão. As superfícies resultantes são \textit{quasi}-horizontais.
+
+\subsubsection{Distribuição vertical das camadas}
+
+O ajuste do número de camadas vertical do modelo, fica a critério do usuário. O NCEP, por exemplo, já utilizou algumas versões do modelo Eta com 16 a 120 camadas, geralmente aumentando-se também a resolução horizontal e a capacidade do computador. O usuário precisa gerar os seguintes arquivos, os quais serão utilizados como arquivos "INCLUDE" para o código FORTRAN do modelo ou como arquivos de namelists, que são lidos pelo código do modelo:
+
+

@@ -1,0 +1,36 @@
+%% CAPITULO 5
+\hypertarget{estilo:capitulo}{}
+\chapter{CONCLUSÕES E SUGESTÕES}
+\label{ss:cap5}
+
+A inclusão da precipitação no ciclo do sistema Eta+RPSAS, tem como principal objetivo reduzir o tempo de spin up do modelo Eta e melhorar as condições inciais de temperatura e umidade do solo, e consequentemente aprimorar a representação dos sistemas convectivos, especialmente aqueles relacionados à convecção profunda, tais como os SCMs. Nesta dissertação de mestrado foi investigado o impacto causado pela inclusão dos dados estimados de precipitação do TRMM no ciclo de análises e previsões do sistema Eta+RPSAS de 20 km, através da avaliação estatística do skill do modelo Eta e de um estudo de caso de CCM.
+
+Em relação às análises produzidas pelo sistema RPSAS, em comparação com as análises do NCEP e do CPTEC, o Viés e o Erro Quadrático Médio, em geral,  apresentaram valores menores para o experimento CAP (com assimilação de precipitação) e valores maiores para o experimento SAP (sem assimilação de precipitação). Nesta avaliação, os melhores resultados foram encontrados para
+a Altura Geopotencial em 500 hPa e em 250 hPa, a Temperatura do Ar e Ventos Zonal e Meridional em 250 hPa e Umidade Relativa em 850 hPa.
+
+A partir da avaliação do skill do modelo (cálculo do Viés, Erro Quadrático Médio e Correlação de Anomalia), pôde-se notar que com a assimilação de precipitação houve uma pequena redução do Viés e do Erro Quadrático Médio, significando uma redução sensível do erro sistemático do modelo Eta no prognóstico das variáveis verificadas (Altura Geopotencial, Ventos Zonal e Meridional e Temperatura). No entanto, não foram encontradas grandes melhorias em relação à acurácia (Correlação de Anomalia) da previsão do modelo Eta em relação à reanálises do NCEP. Parte deste resultado pode ser devido à metodologia (dados e método de avaliação) adotada para o trabalho.  Possivelmente, a utilização das taxas instantâneas de precipitação do TRMM 3B41 sejam mais apropriadas para inclusão no ciclo do sistema Eta+RPSAS, devido à sua amostragem espaço-temporal. Sistemas de mesoescala tendem a deslocar-se e intensificar-se rapidamente em um curto período tempo (tipicamente 1 hora). Portanto, em 3 horas um sistema desse gênero pode evoluir rapidamente em seu ciclo de vida. A ideia principal da inclusão de precipitação é corrigir instantaneamente as condições iniciais de solo e que modulam o desenvolvimento convectivo desses sistemas e melhorar o diagnóstico da precipitação pelo sistema de análise/previsão.
+
+Durante os meses de Novembro de 2002 a Fevereiro de 2003, foi realizado um dos maiores experimentos de campo - SALLJEX, cujo principal objetivo foi es-tudar os JBN e sua influência na dinâmica dos processos convectivos de mesoescala. Durante o mês de Janeiro de 2003, foi verificada a ocorrência de mais de 100 SCMs, dos quais 2 foram classificados como CCM (ZIPSER, 2004).  Dentre estes dois evento de precipitação severa foi escolhido o ocorrido no dia 23 de Janeiro de 2003 para a realização de um estudo de caso. Nas simulações com (CAP) e sem (SAP) assimilação de precipitação do TRMM, pôde-se concluir que o modelo regional de previsão de tempo Eta foi capaz de simular algumas das características do CCM. Uma característica dos modelos de regionais de mesoescala como o Eta, na previsão de sistemas convectivos, é atrasar a posição e subestimar a quantidade de precipitação associada e esse tipo de evento precipitante. Este fato pôde ser verificado com a simulação SAP do estudo de caso, em que o modelo não previu a precipitação característica do CCM sobre o norte da Argentina. O experimento CAP, que assimilou a precipitação do TRMM, foi capaz de detectar a presença da precipitação associada ao CCM e de posicionar e simular uma quantidade de precipitação compatível com a observada. Os dados de alta resolução do SALLJEX, no entanto, apresentam acumulados muito superiores àquela apresentada pelo modelo de previsão e também pelos acumulados do TRMM. Esta situação se deve ao fato de que durante o período de estudos do SALLJEX foi utilizada uma rede de pluviômetros muito densa, o que operacionalmente, não é comum.
+
+Em suma, pode-se dizer que a Assimilação de Precipitação no sistema de as-similação de dados Eta+RPSAS apresentou resultados satisfatórios, princi-palmente para a previsão de curtíssimo prazo (6 a 24 horas), tendo sido obser-vado ganhos substanciais de desempenho do modelo no first guess (uma vez que com a assimilação de precipitação, os campos de FG já estão balanceados quando a análise é gerada, o que também implica na redução do spinup do modelo). Os resultados mais sensíveis podem ser observados em baixos e em médios níveis do que em altos níveis.
+
+A inclusão de precipitação o ciclo de assimilação de dados do sistema Eta+RPSAS apresenta-se como um produto com potencial que vem de encontro com os objetivos do CPTEC devido aos resultados encontrado. No entanto, há alguns fatores que devem ser considerados para uma possível operacionalização desse sistema:
+
+\begin{itemize}
+\item Dados de precipitação do TRMM não estão disponíveis em tempo real para assimilação;
+\item Mesmo havendo disponibilidade destes dados de precipitação, há que se considerar um conjunto mais de dados de precipitação, como por exemplo, \item TRMM+Hidroestimador para garantir que um mínimo de informações sobre a superfície para inicializar o modelo;
+\item O sistema de assimilação de dados RPSAS é computacionalmente custoso, embora o processo de assimilação de precipitação seja extremamente rápido e eficiente.
+\end{itemize}
+
+Estes fatores devem ser considerados, pois como foi mostrado em alguns resultados, a assimilação de precipitação exerce um influência sensível nas condições iniciais do solo (principalmente umidade), que são fundamentais para o desenvolvimento dos processos convectivos.
+
+De outro ponto de vista, a simplicidade de todo o processo de inclusão de precipitação, não causa nenhum ônus ao desempenho geral do sistema Eta+RPSAS. Além disso, no fututo, outros modelos e sistemas mais sofisticados de AD (filtro de Kalman) poderão possivelmente colaborar com a eficiência e o desempenho deste esquema de assimilação de precipitação.
+
+Para estudos futuros que venham a utilizar este mesmo sistema de análises/previsões (Eta+RPSAS), sugere-se os seguintes tópicos:
+
+\begin{enumerate}
+\item Fazer uma comparação da acurácia do modelo Eta com a parametrização convectiva de Kain-Fritsch versus Betts-Miller-Janjić considerando-se a assimilação de precipitação;
+\item Verificar o esquema de inclusão de precipitação com dados horários do TRMM, Hidroestimador e outros dados de precipitação disponíveis;
+\item Realizar experimentos com previsões livre mais longas (e.g. 72h) e avaliar o skill do modelo Eta em outros períodos.
+\item Se possível, realizar experimentos com as mesmas configurações adotadas para os experimentos desta dissertação com uma resolução maior e no modo não-hidrostático buscando explorar se o sistema é capaz de simular maiores detalhes dos processos convectivos. Neste caso sugere-se utilizar as configurações determinadas por Rozante e Cavalcanti (2008), mas com a inclusão de precipitação.
+\end{enumerate}
